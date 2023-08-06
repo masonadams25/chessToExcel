@@ -3,6 +3,10 @@ import openpyxl
 from time import strftime, localtime
 
 
+dailyGames = {}
+
+def resetDict():
+    dailyGames.clear()
 
 def parseGames(games, username, month, year):    
     for game in games:
@@ -36,7 +40,6 @@ def parseGames(games, username, month, year):
             }
         addDailyGames(dailyGames[date], result, month, day, rating, accuracy)
 
-dailyGames = {}
 def addDailyGames(dict, result, month, day, rating, accuracy):
     dict['date'] = str(month) + '-' + str(day)
     dict['totGames'] = int(dict['totGames']) + 1
